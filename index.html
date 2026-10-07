@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biogrfias a escoger</title>
+<style>
+body{font-family:Arial,sans-serif;margin:40px;color:#000;background:#fff}
+.cuadro{border:1px solid #999;padding:15px;max-width:300px}
+label{display:block;margin:8px 0}
+#enlace{margin-top:15px}
+</style>
+</head>
+<body>
+
+<h1>Elige a quien quieres conocer mejor</h1>
+
+<div class="cuadro">
+  <label><input type="radio" name="op" value="0"> Opción 1</label>
+  <label><input type="radio" name="op" value="1"> Opción 2</label>
+  <label><input type="radio" name="op" value="2"> Opción 3</label>
+</div>
+
+<div id="enlace"></div>
+
+<script>
+var destinos = [
+  {texto: "conoce a Leonardo", url: "https://bio-leo.onrender.com/"},
+  {texto: "conoce a Marcos", url: "https://bio-marcos.onrender.com/"},
+  {texto: "conoce a Julio", url: "https://bio-julio.onrender.com/"}
+];
+
+var radios = document.querySelectorAll('input[name="op"]');
+for (var i = 0; i < radios.length; i++) {
+  radios[i].addEventListener("change", function () {
+    var d = destinos[this.value];
+    document.getElementById("enlace").innerHTML =
+      '<a href="' + d.url + '" target="_blank">' + d.texto + '</a>';
+  });
+}
+</script>
+
+</body>
+</html>
